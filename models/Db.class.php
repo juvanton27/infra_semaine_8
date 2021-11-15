@@ -3,7 +3,6 @@ class Db
 {
     private static $instance = null;
     private $_db;
-    private DATABASE_URL = "postgres://mfjfmzqhtyasbx:f25810038e610a75661c5efae080b1429d143f2ad5ec7e1758f895123ebaf3b4@ec2-34-253-116-145.eu-west-1.compute.amazonaws.com:5432/d1pgmr3qth0o2e" 
 
     private function __construct()
     {

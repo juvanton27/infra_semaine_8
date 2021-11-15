@@ -7,7 +7,7 @@ class Db
     private function __construct()
     {
         try {
-            $db = parse_url(getenv("DATABASE_URL"));
+            $this->_db = parse_url(getenv("DATABASE_URL"));
 
 	    $pdo = new PDO("pgsql:" . sprintf(
 		"host=%s;port=%s;user=%s;password=%s;dbname=%s",
@@ -17,7 +17,7 @@ class Db
 		$this->_db["pass"],
 		ltrim($this->_db["path"], "/")
 	    ));
-            $this->_db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         } 
 		catch (PDOException $e) {
 		    die('Erreur de connexion à la base de données : '.$e->getMessage());
